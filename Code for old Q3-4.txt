@@ -1,0 +1,70 @@
+if (Qsum1 < Qsum2)
+                {
+                    if (secondtemp1 == 0)
+                    {
+                        if (secondstate1 == 0)
+                        {
+                            specheat1 = 4186;
+                            intQ3 = intmass1 * specheat1 * (boilingpt1 - secondtemp1);
+                            thirdtemp1 = 100;
+                            thirdstate1 = 0;
+                        }
+                        if (secondstate1 == 1)
+                        {
+                            specheat1 = 2090;
+                            intQ3 = intmass1 * LHF1;
+                            thirdtemp1 = 0;
+                            thirdstate1 = 0;
+                        }
+                    }
+                    if (secondtemp1 == 100)
+                    {
+                        if (secondstate1 == 0)
+                        {
+                            intQ3 = intmass1 * LHV1;
+                            thirdtemp1 = 100;
+                            thirdstate1 = 2;
+                        }
+                        if (secondstate1 == 2)
+                        {
+                            specheat1 = 2010;
+                            finalTemp = ((intmass1 * specheat1 * secondtemp1) + (intmass2 * specheat2 * secondtemp2)) / ((intmass1 * specheat1) + (intmass2 * specheat2));
+                        }
+                    }
+                }
+                if (Qsum1 > Qsum2)
+                {
+                    if (secondtemp2 == 0)
+                    {
+                        if (secondstate2 == 0)
+                        {
+                            specheat2 = 4186;
+                            intQ4 = intmass2 * specheat2 * (boilingpt2 - secondtemp2);
+                            thirdtemp2 = 100;
+                            thirdstate2 = 0;
+                        }
+                        if (secondstate2 == 1)
+                        {
+                            specheat2 = 2090;
+                            intQ4 = intmass2 * LHF2;
+                            thirdtemp2 = 0;
+                            thirdstate2 = 0;
+                        }
+                    }
+                    if (secondtemp2 == 100)
+                    {
+                        if (secondstate2 == 0)
+                        {
+                            intQ4 = intmass2 * LHV2;
+                            thirdtemp2 = 100;
+                            thirdstate2 = 2;
+                        }
+                        if (secondstate2 == 2)
+                        {
+                            specheat2 = 2010;
+                            finalTemp = ((intmass1 * specheat1 * secondtemp1) + (intmass2 * specheat2 * secondtemp2)) / ((intmass1 * specheat1) + (intmass2 * specheat2));
+                        }
+                    }
+                }
+                Qsum1 = intQ1 + intQ3;
+                Qsum2 = intQ2 + intQ4;

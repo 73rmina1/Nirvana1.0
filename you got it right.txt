@@ -1,0 +1,8 @@
+ string val;
+            int res;
+            string final;
+            val = tempBox1.Text.ToString();
+            res = Convert.ToInt32(val);
+            res = res * 5;
+            final = Convert.ToString(res);
+            lblAnswer.Text = final;

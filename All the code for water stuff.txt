@@ -1,0 +1,313 @@
+            // If it is just plain water this will find Q1
+            if (materialBox1.SelectedItem.ToString() == "Water")
+            {
+                if (inttemp1 > inttemp2)
+                {
+                    intQ1 = intmass1 * specheat1 * (boilingpt1 - inttemp1);
+                }
+                if (inttemp1 < inttemp2)
+                {
+                    intQ1 = intmass1 * specheat1 * (meltingpt1 - inttemp1);
+                }
+            }
+
+            if (materialBox1.SelectedItem.ToString() == "Ice")
+            {
+                boilingpt1 = 100;
+                meltingpt1 = 0;
+                specheat1 = 2090;
+                LHF1 = 333000;
+                LHV1 = 2260000;
+
+                // get the Q1 for ice if it is selected
+
+                if (inttemp1 == meltingpt1)
+                {
+                    intQ1 = intmass1 * LHF1;
+                }
+                if (inttemp1 < meltingpt1)
+                {
+                    intQ1 = intmass1 * specheat1 * (meltingpt1 - inttemp1);
+                }
+            }
+            if (materialBox1.SelectedItem.ToString() == "Steam")
+            {
+                boilingpt1 = 100;
+                meltingpt1 = 0;
+                specheat1 = 2010;
+                LHF1 = 333000;
+                LHV1 = 2260000;
+
+                // get the Q1 for Steam if it is selected
+
+                if (inttemp1 == boilingpt1)
+                {
+                    intQ1 = intmass1 * LHV1;
+                }
+                if (inttemp1 > boilingpt1)
+                {
+                    intQ1 = intmass1 * specheat1 * (boilingpt1 - inttemp1);
+                }
+            }
+
+
+
+##################################### EQUATION ############################################
+
+            finalTemp = ((intmass1 * specheat1 * inttemp1) + (intmass2 * specheat2 * inttemp2)) / ((intmass1 * specheat1) + (intmass2 * specheat2));
+
+            answer = finalTemp.ToString();
+            lblAnswer.Text = answer;
+
+infor for water 1
+
+            if (materialBox1.SelectedItem.ToString() == "Water")
+            {
+                boilingpt1 = 100;
+                meltingpt1 = 0;
+                specheat1 = 4186;
+                LHF1 = 333000;
+                LHV1 = 2260000;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							##################### VAULT ####################
+ //1
+                // If it is identified as liquid
+                if (inttemp1 >= 0 && inttemp1 <= 100 && stateBox1.SelectedItem.ToString() == "L")
+                {
+                    specheat1 = 4186;
+                    if (inttemp1 > inttemp2)
+                    {
+                        intQ1 = intmass1 * specheat1 * (boilingpt1 - inttemp1);
+                    }
+                    if (inttemp1 < inttemp2)
+                    {
+                        intQ1 = intmass1 * specheat1 * (meltingpt1 - inttemp1);
+                    }
+                }
+
+                // 2
+                // If it is identified as liquid
+                if (inttemp2 >= 0 && inttemp2 <= 100 && stateBox2.SelectedItem.ToString() == "L")
+                {
+                    specheat1 = 4186;
+                    if (inttemp2 > inttemp1)
+                    {
+                        intQ2 = intmass2 * specheat2 * (boilingpt2 - inttemp2);
+                    }
+                    if (inttemp2 < inttemp1)
+                    {
+                        intQ2 = intmass2 * specheat2 * (meltingpt2 - inttemp2);
+                    }
+                }
+
+                //1
+                // If it is identified as a solid
+                if (inttemp1 <= 0 && stateBox1.SelectedItem.ToString() == "S")
+                {
+                    if (inttemp1 > inttemp2)
+                    {
+                        finalTemp = ((intmass1 * specheat1 * inttemp1) + (intmass2 * specheat2 * inttemp2)) / ((intmass1 * specheat1) + (intmass2 * specheat2));
+                        answer = finalTemp.ToString();
+                        lblAnswer.Text = answer;
+                    }
+                    if (inttemp1 < inttemp2)
+                    {
+                        if (inttemp1 == 0)
+                        {
+                            intQ1 = intmass1 * LHF1;
+                        }
+                        if (inttemp1 < 0)
+                        {
+                            intQ1 = intmass1 * specheat1 * (meltingpt1 - inttemp1);
+                        }
+                    }
+                }
+
+                //2
+                // If it is identified as a solid
+                if (inttemp2 <= 0 && stateBox2.SelectedItem.ToString() == "S")
+                {
+                    if (inttemp2 > inttemp1)
+                    {
+                        finalTemp = ((intmass1 * specheat1 * inttemp1) + (intmass2 * specheat2 * inttemp2)) / ((intmass1 * specheat1) + (intmass2 * specheat2));
+                        answer = finalTemp.ToString();
+                        lblAnswer.Text = answer;
+                    }
+                    if (inttemp2 < inttemp1)
+                    {
+                        if (inttemp2 == 0)
+                        {
+                            intQ2 = intmass2 * LHF2;
+                        }
+                        if (inttemp2 < 0)
+                        {
+                            intQ2 = intmass2 * specheat2 * (meltingpt2 - inttemp2);
+                        }
+                    }
+                }
+
+                //1
+                // If it is identified as a gas
+                if (inttemp1 >= 100 && stateBox1.SelectedItem.ToString() == "G")
+                {
+                    if (inttemp1 > inttemp2)
+                    {
+                        finalTemp = ((intmass1 * specheat1 * inttemp1) + (intmass2 * specheat2 * inttemp2)) / ((intmass1 * specheat1) + (intmass2 * specheat2));
+                        answer = finalTemp.ToString();
+                        lblAnswer.Text = answer;
+                    }
+                    if (inttemp1 < inttemp2)
+                    {
+                        if (inttemp1 == 0)
+                        {
+                            intQ1 = intmass1 * LHV1;
+                        }
+                        if (inttemp1 < 0)
+                        {
+                            intQ1 = intmass1 * specheat1 * (boilingpt1 - inttemp1);
+                        }
+                    }
+                }
+
+                //2
+                // If it is identified as a gas
+                if (inttemp2 >= 100 && stateBox2.SelectedItem.ToString() == "G")
+                {
+                    if (inttemp2 > inttemp1)
+                    {
+                        finalTemp = ((intmass1 * specheat1 * inttemp1) + (intmass2 * specheat2 * inttemp2)) / ((intmass1 * specheat1) + (intmass2 * specheat2));
+                        answer = finalTemp.ToString();
+                        lblAnswer.Text = answer;
+                    }
+                    if (inttemp2 < inttemp1)
+                    {
+                        if (inttemp2 == 0)
+                        {
+                            intQ2 = intmass2 * LHV2;
+                        }
+                        if (inttemp2 < 0)
+                        {
+                            intQ2 = intmass2 * specheat2 * (boilingpt2 - inttemp2);
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+
+
+
+
+
+
+
+
+                if (Qsum1 < Qsum2)
+                {
+                    if (secondtemp1 == 100)
+                    {
+                        if (secondstate1 == 2)
+                        {
+                            specheat1 = 2010;
+                            intQ3 = LHV1 * intmass1;
+                        }
+                        if (secondstate1 == 0)
+                        {
+                            specheat1 = 4186;
+                            intQ3 = intmass1 * specheat1 * (meltingpt1 - secondtemp1);
+                        }
+                    }
+                    if (secondtemp1 == 0)
+                    {
+                        if (secondstate1 == 1)
+                        {
+                            specheat1 = 2090;
+                            intQ3 = intmass1 * LHF1;
+                        }
+                        if (secondstate1 == 0)
+                        {
+                            specheat1 = 4186;
+                            intQ3 = intmass1 * specheat1 * (boilingpt1 - secondtemp1);
+                        }
+                    }
+                }
+                if (Qsum2 < Qsum1)
+                {
+                    if (secondtemp2 == 100)
+                    {
+                        if (secondstate2 == 2)
+                        {
+                            specheat2 = 2010;
+                            intQ4 = LHV2 * intmass2;
+                        }
+                        if (secondstate2 == 0)
+                        {
+                            specheat2 = 4186;
+                            intQ4 = intmass2 * specheat2 * (meltingpt2 - secondtemp2);
+                        }
+                    }
+                    if (secondtemp2 == 0)
+                    {
+                        if (secondstate2 == 1)
+                        {
+                            specheat2 = 2090;
+                            intQ4 = intmass2 * LHF2;
+                        }
+                        if (secondstate2 == 0)
+                        {
+                            specheat2 = 4186;
+                            intQ4 = intmass2 * specheat2 * (boilingpt2 - secondtemp2);
+                        }
+                    }
+                }
