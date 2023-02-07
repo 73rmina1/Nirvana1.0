@@ -1,0 +1,10 @@
+C:\Users\7ermi\OneDrive\Documents\Professional\Portfolio\Nirvana complete\obj\Debug\Nirvana1.0.csproj.AssemblyReference.cache
+C:\Users\7ermi\OneDrive\Documents\Professional\Portfolio\Nirvana complete\obj\Debug\Nirvana1.0.csproj.SuggestedBindingRedirects.cache
+C:\Users\7ermi\OneDrive\Documents\Professional\Portfolio\Nirvana complete\obj\Debug\Nirvana1._0.Form1.resources
+C:\Users\7ermi\OneDrive\Documents\Professional\Portfolio\Nirvana complete\obj\Debug\Nirvana1.0.csproj.GenerateResource.cache
+C:\Users\7ermi\OneDrive\Documents\Professional\Portfolio\Nirvana complete\bin\Debug\Nirvana1.0.exe.config
+C:\Users\7ermi\OneDrive\Documents\Professional\Portfolio\Nirvana complete\bin\Debug\Nirvana1.0.exe
+C:\Users\7ermi\OneDrive\Documents\Professional\Portfolio\Nirvana complete\bin\Debug\Nirvana1.0.pdb
+C:\Users\7ermi\OneDrive\Documents\Professional\Portfolio\Nirvana complete\obj\Debug\Nirvana1.0.csproj.CoreCompileInputs.cache
+C:\Users\7ermi\OneDrive\Documents\Professional\Portfolio\Nirvana complete\obj\Debug\Nirvana1.0.exe
+C:\Users\7ermi\OneDrive\Documents\Professional\Portfolio\Nirvana complete\obj\Debug\Nirvana1.0.pdb
